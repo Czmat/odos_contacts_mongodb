@@ -1,26 +1,17 @@
 import React from 'react';
 import axios from 'axios';
+import ProductList from '../components/Index/ProductList';
+import baseUrl from '../utils/baseUrl';
 
 function Home({ products }) {
-  console.log(products);
-  React.useEffect(() => {
-    getProducts();
-  }, []);
-
-  async function getProducts() {
-    const url = 'http://localhost:3000/api/products';
-    const response = await axios.get(url);
-    //console.log(response.data);
-  }
-
-  return <>home</>;
+  return <ProductList products={products} />;
 }
 
-//To catch data first on the server, before the component renders, we can use Next to do that.
+//To catch data first on the server, before the component renders, we can use Nextjs (below) to do that.
 
 Home.getInitialProps = async () => {
   //fetch datat on server
-  const url = 'http://localhost:3000/api/products';
+  const url = `${baseUrl}/api/products`;
   const response = await axios.get(url);
   //return response data as an object
   return { products: response.data };

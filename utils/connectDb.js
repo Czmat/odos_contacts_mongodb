@@ -19,7 +19,7 @@ async function connectDb() {
     useUnifiedTopology: true,
   });
   console.log('DB Connected');
-  //this is how to connect mondo db to serverless application, you with other severless backend like AWS lambda
+  //this is how to connect mondo db to serverless application, use with other severless backend like AWS lambda
   connection.isConnected = db.connections[0].readyState;
 }
 

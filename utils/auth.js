@@ -9,9 +9,15 @@ export function handleLogin(token) {
 export function redirectUser(ctx, location) {
   // to find out if we are on a server
   if (ctx.req) {
+    // redirect with node, 302 code is indicating that we are redirecting
     ctx.res.writeHead(302, { Location: location });
     ctx.res.end();
   } else {
     Router.push(location);
   }
+}
+
+export function handleLogout() {
+  cookie.remove('token');
+  Router.push('/login');
 }

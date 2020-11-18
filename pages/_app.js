@@ -4,6 +4,7 @@ import { destroyCookie, parseCookies } from 'nookies';
 import { redirectUser } from '../utils/auth';
 import baseUrl from '../utils/baseUrl';
 import axios from 'axios';
+import Router from 'next/router';
 
 // executed on the server and before anything else
 // becouse its on the server we are able to get all the cookies
@@ -50,6 +51,17 @@ class MyApp extends App {
 
     return { pageProps };
   }
+
+  componentDidMount() {
+    window.addEventListener('storage', this.syncLogout);
+  }
+
+  syncLogout = (event) => {
+    if (event.key === 'logout') {
+      console.log('logged out from storage');
+      Router.push('/login');
+    }
+  };
 
   render() {
     const { Component, pageProps } = this.props;

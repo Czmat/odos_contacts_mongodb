@@ -9,7 +9,7 @@ function Cart({ products }) {
   return (
     <Segment>
       <CartItemList products={products} />
-      <CartSummary />
+      <CartSummary products={products} />
     </Segment>
   );
 }

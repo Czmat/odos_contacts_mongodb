@@ -6,10 +6,9 @@ import { parseCookies } from 'nookies';
 import baseUrl from '../utils/baseUrl';
 
 function Cart({ products }) {
-  console.log(products);
   return (
     <Segment>
-      <CartItemList />
+      <CartItemList products={products} />
       <CartSummary />
     </Segment>
   );

@@ -42,7 +42,6 @@ function CreateProduct() {
     } else {
       setProduct((prevState) => ({ ...prevState, [name]: value }));
       // setProduct({ ...product, [name]: value });
-      // console.log(product);
     }
   }
 
@@ -68,7 +67,6 @@ function CreateProduct() {
       //same as below
       const payload = { ...product, mediaUrl };
       const response = await Axios.post(url, payload);
-      console.log({ response });
       setProduct(INITIAL_PRODUCT);
       setSuccess(true);
     } catch (error) {

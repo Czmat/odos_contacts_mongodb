@@ -19,7 +19,6 @@ class MyApp extends App {
     }
 
     if (!token) {
-      console.log('ctx obj', ctx);
       const isProtectedRoute =
         ctx.pathname === '/account' || ctx.pathname === '/create';
       if (isProtectedRoute) {
